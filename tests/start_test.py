@@ -36,7 +36,7 @@ async def test_create_and_delete_qr_code():
     async with AsyncClient(app=app, base_url="http://test") as ac:
         # Login and get the access token
         token_response = await ac.post("/token", data=form_data)
-        access_token = token_response.json().get("access_token")
+        access_token = token_response.json()["access_token"]
         headers = {"Authorization": f"Bearer {access_token}"}
 
         # Create a QR code
